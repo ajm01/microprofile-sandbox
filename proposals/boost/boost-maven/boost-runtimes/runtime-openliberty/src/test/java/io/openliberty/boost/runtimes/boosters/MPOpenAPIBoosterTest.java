@@ -26,8 +26,8 @@ public class MPOpenAPIBoosterTest {
     BoostLoggerI logger = CommonLogger.getInstance();
 
     /**
-     * Test that the mpHealth-1.0 feature is added to server.xml when the MPHealth
-     * booster version is set to 0.2-SNAPSHOT
+     * Test that the mpOpenAPI-1.0 feature is added to server.xml when the MPHealth
+     * booster version is set to 0.1.0-SNAPSHOT
      * 
      */
     @Test
@@ -47,6 +47,31 @@ public class MPOpenAPIBoosterTest {
                 "<feature>" + MPOPENAPI_10 + "</feature>");
 
         assertTrue("The " + MPOPENAPI_10 + " feature was not found in the server configuration", featureFound);
+
+    }
+    
+    /**
+     * Test that the mpOpenAPI-1.1 feature is added to server.xml when the MPHealth
+     * booster version is set to 0.1.1-SNAPSHOT
+     * 
+     */
+    @Test
+    public void testMPOpenAPIBoosterFeature11() throws Exception {
+
+        LibertyServerConfigGenerator serverConfig = new LibertyServerConfigGenerator(
+                outputDir.getRoot().getAbsolutePath(), logger);
+
+        LibertyMPOpenAPIBoosterConfig libMPOpenAPIConfig = new LibertyMPOpenAPIBoosterConfig(BoosterUtil.createDependenciesWithBoosterAndVersion(LibertyMPOpenAPIBoosterConfig.class, "0.1.1-SNAPSHOT"), logger);
+
+
+        serverConfig.addFeature(libMPOpenAPIConfig.getFeature());
+        serverConfig.writeToServer();
+
+        String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
+        boolean featureFound = ConfigFileUtils.findStringInServerXml(serverXML,
+                "<feature>" + MPOPENAPI_11 + "</feature>");
+
+        assertTrue("The " + MPOPENAPI_11 + " feature was not found in the server configuration", featureFound);
 
     }
 

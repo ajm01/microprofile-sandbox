@@ -26,8 +26,8 @@ public class MPFaultToleranceBoosterTest {
     BoostLoggerI logger = CommonLogger.getInstance();
 
     /**
-     * Test that the mpConfig-1.3 feature is added to server.xml when the MPConfig
-     * booster version is set to 0.2-SNAPSHOT
+     * Test that the mpFaultTolerance-1.2 feature is added to server.xml when the MPConfig
+     * booster version is set to 0.1.2-SNAPSHOT
      * 
      */
     @Test
@@ -47,6 +47,31 @@ public class MPFaultToleranceBoosterTest {
                 "<feature>" + MPFAULTTOLERANCE_11 + "</feature>");
 
         assertTrue("The " + MPFAULTTOLERANCE_11 + " feature was not found in the server configuration", featureFound);
+
+    }
+
+    /**
+     * Test that the mpFaultTolerance-2.0 feature is added to server.xml when the MPConfig
+     * booster version is set to 0.2.0-SNAPSHOT
+     * 
+     */
+    @Test
+    public void testMPFaultToleranceBoosterFeature20() throws Exception {
+
+        LibertyServerConfigGenerator serverConfig = new LibertyServerConfigGenerator(
+                outputDir.getRoot().getAbsolutePath(), logger);
+
+        LibertyMPFaultToleranceBoosterConfig libMPFTConfig = new LibertyMPFaultToleranceBoosterConfig(BoosterUtil.createDependenciesWithBoosterAndVersion(LibertyMPFaultToleranceBoosterConfig.class, "0.2.0-SNAPSHOT"), logger);
+
+
+        serverConfig.addFeature(libMPFTConfig.getFeature());
+        serverConfig.writeToServer();
+
+        String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
+        boolean featureFound = ConfigFileUtils.findStringInServerXml(serverXML,
+                "<feature>" + MPFAULTTOLERANCE_20 + "</feature>");
+
+        assertTrue("The " + MPFAULTTOLERANCE_20 + " feature was not found in the server configuration", featureFound);
 
     }
 

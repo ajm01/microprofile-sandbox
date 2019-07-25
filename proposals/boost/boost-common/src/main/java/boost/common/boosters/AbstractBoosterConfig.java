@@ -42,10 +42,14 @@ public abstract class AbstractBoosterConfig {
     public static final String MP_CONFIG_VERSION_13 = "0.1.3-SNAPSHOT";
     public static final String MP_METRICS_VERSION_11 = "0.1.1-SNAPSHOT";
     public static final String MP_FAULTTOLERANCE_VERSION_11 = "0.1.1-SNAPSHOT";
+    public static final String MP_FAULTTOLERANCE_VERSION_20 = "0.2.0-SNAPSHOT";
     public static final String MP_OPENAPI_VERSION_10 = "0.1.0-SNAPSHOT";
+    public static final String MP_OPENAPI_VERSION_11 = "0.1.1-SNAPSHOT";
     public static final String MP_OPENTRACING_VERSION_11 = "0.1.1-SNAPSHOT";
     public static final String MP_OPENTRACING_VERSION_12 = "0.1.2-SNAPSHOT";
+    public static final String MP_OPENTRACING_VERSION_13 = "0.1.3-SNAPSHOT";
     public static final String MP_RESTCLIENT_VERSION_11 = "0.1.1-SNAPSHOT";
+    public static final String MP_RESTCLIENT_VERSION_12 = "0.1.2-SNAPSHOT";
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.TYPE)

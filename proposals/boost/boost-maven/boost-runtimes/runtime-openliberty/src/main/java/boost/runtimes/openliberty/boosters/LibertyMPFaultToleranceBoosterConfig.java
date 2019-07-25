@@ -10,7 +10,7 @@
  *******************************************************************************/
 package boost.runtimes.openliberty.boosters;
 
-import static boost.common.config.ConfigConstants.MPFAULTTOLERANCE_11;
+import static boost.common.config.ConfigConstants.*;
 
 import java.util.Map;
 
@@ -30,6 +30,9 @@ public class LibertyMPFaultToleranceBoosterConfig extends MPFaultToleranceBooste
     public String getFeature() {
         if (getVersion().equals(MP_FAULTTOLERANCE_VERSION_11)) {
             return MPFAULTTOLERANCE_11;
+        }
+        else if (getVersion().equals(MP_FAULTTOLERANCE_VERSION_20)) {
+            return MPFAULTTOLERANCE_20;
         }
         return null;
     }
