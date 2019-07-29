@@ -103,21 +103,6 @@
 	            <artifactId>microprofile-opentracing-api</artifactId>
 	            <version>${opentracing-version}</version>
 	        </dependency>
-	        <dependency>
-				<groupId>boost.boosters</groupId>
-				<artifactId>jaxrs</artifactId>
-				<version>${jaxrs-version}</version>
-			</dependency>
-			<dependency>
-				<groupId>boost.boosters</groupId>
-				<artifactId>cdi</artifactId>
-				<version>${cdi-version}</version>
-			</dependency>
-			<dependency>
-				<groupId>boost.boosters</groupId>
-				<artifactId>jsonp</artifactId>
-				<version>${jsonp-version}</version>
-			</dependency>
 		</dependencies>	
 	</dependencyManagement>
 
